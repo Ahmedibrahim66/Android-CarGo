@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_buy"
+        android:enabled="true"
+        android:icon="@drawable/ic_001_brand_new_car_with_dollar_price_tag"
+        android:title="Buy a Car"
+      />
+    <item
+        android:id="@+id/nav_nothing"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home"
+        />
+    <item
+        android:id="@+id/nav_rent"
+        android:enabled="true"
+        android:icon="@drawable/ic_002_rent_a_car_sign"
+        android:title="Rent a Car"
+        />
+</menu>

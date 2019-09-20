@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp">
+
+
+<androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="220dp"
+        android:layout_height="270dp"
+        app:cardCornerRadius="26dp"
+        android:background="@drawable/topdealbackground"
+
+
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/topdealbackground"
+            >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="220dp"
+            android:layout_height="140dp"
+            android:id="@+id/iv_carImage"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:scaleType="centerCrop"
+
+            />
+
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:paddingBottom="5dp">
+
+
+             <TextView
+            android:id="@+id/tv_carBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cars Brand"
+            android:layout_weight="1"
+            android:fontFamily="@font/lecenddeca_regular"
+                 android:textColor="#000000"
+                 android:paddingLeft="5dp"
+                 />
+
+             <TextView
+                 android:id="@+id/tv_carPrice"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:fontFamily="@font/fredoka_one"
+                 android:text="$price"
+                 android:textAlignment="viewEnd"
+                 android:textColor="#1FE34D"
+                 android:paddingRight="5dp"/>
+
+         </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/tv_carType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cars Brand"
+                    android:layout_weight="1"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/lecenddeca_regular"
+                    android:paddingLeft="5dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_carDiscount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="$discount"
+                    android:textAlignment="viewEnd"
+                    android:textColor="#F30000"
+
+                    android:fontFamily="@font/fredoka_one"
+                    android:paddingRight="5dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+
+            <TextView
+                android:id="@+id/tv_new_used"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New"
+                android:textColor="#000"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:fontFamily="@font/lecenddeca_regular"
+                android:paddingBottom="0dp"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_delear"
+                    android:fontFamily="@font/lecenddeca_regular"
+                    android:text="Friends Motors"
+                    android:textColor="#000"
+                    android:paddingRight="5dp"
+
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                ></LinearLayout>
+
+
+            <Button
+                android:id="@+id/bt_seeOffer"
+                android:layout_width="132dp"
+                android:layout_height="30dp"
+                android:text="See Offer"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:background="@drawable/roundedbutton"
+                android:fontFamily="@font/lecenddeca_regular"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                ></LinearLayout>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>
+
+</LinearLayout>
