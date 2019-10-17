@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "184738293187",
+    "firebase_url": "https://cargo-a4b87.firebaseio.com",
+    "project_id": "cargo-a4b87",
+    "storage_bucket": "cargo-a4b87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184738293187:android:14b0898d07d5f8fce10976",
+        "android_client_info": {
+          "package_name": "com.example.cargo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184738293187-eci8h10q78c6lc4e49abh0hlbprrqsr5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cargo",
+            "certificate_hash": "71aaac2a6f3a35de57cbeb3bde547da52be17b27"
+          }
+        },
+        {
+          "client_id": "184738293187-bvjnb3egsvjrhffi640c6uas7epu66uh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgrESb8Y_YLEk60_vj8ArCXjBRFIAE3-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184738293187-bvjnb3egsvjrhffi640c6uas7epu66uh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

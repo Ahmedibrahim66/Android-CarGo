@@ -10,12 +10,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".CreateDealer"></activity>
+        <activity android:name=".AddDealer" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".CreateAccount" />
+        <activity android:name=".Verfitylogin" />
+        <activity
+            android:name=".SignInAuthentication"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".SellMyCar5" />
+        <activity android:name=".SellMyCar4" />
+        <activity
+            android:name=".SellMyCar3"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".SellMyCar2" />
+        <activity android:name=".SellMyCar" />
+        <activity android:name=".SpecialOfferBuyFullCard" />
+        <activity android:name=".LatestOffersBuy" />
         <activity
             android:name=".SpecialOffersBuy"
-            android:theme="@style/AppTheme.NoActionBar"
-        ></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivityAr" />
-        <activity android:name=".SplashScreen"></activity>
+        <activity android:name=".SplashScreen" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -27,11 +53,15 @@
         </activity>
 
         <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <dist:module dist:instant="true" />
 

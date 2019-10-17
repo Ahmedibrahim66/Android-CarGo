@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item android:title="CarGO Home">
+            <menu>
+                <item
+                    android:id="@+id/menu_buyacar"
+                    android:icon="@drawable/ic_car_for_sale"
+                    android:title="Buy a Car"></item>
+
+                <item
+                    android:id="@+id/menu_rentacar"
+                    android:icon="@drawable/ic_rentcar"
+                    android:title="Rent  a Car"></item>
+
+                <item
+                    android:id="@+id/SellmyCarNotLogged"
+                    android:icon="@drawable/ic_payment_methodblack"
+                    android:title="Sell My Car"></item>
+
+
+            </menu>
+        </item>
+
+        <item android:title="Account">
+            <menu>
+
+                <item
+                    android:id="@+id/logIn"
+                    android:icon="@drawable/ic_log_in"
+                    android:title="Log In"></item>
+            </menu>
+        </item>
+
+
+        <item android:title="Communicate">
+            <menu>
+                <item
+                    android:id="@+id/aboutUs"
+                    android:icon="@drawable/ic_info_black_24dp"
+                    android:title="About Us"></item>
+
+
+            </menu>
+        </item>
+
+
+
+    </group>
+
+
+
+</menu>

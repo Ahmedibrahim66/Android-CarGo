@@ -1,6 +1,7 @@
 package com.example.cargo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class latestofferbuycardRecycleViewAdapter  extends RecyclerView.Adapter<
 
 
 
-
+    private ArrayList<String> ID = new ArrayList<>();
     private ArrayList<String> Brand = new ArrayList<>();
     private ArrayList<String> Type = new ArrayList<>();
     private ArrayList<String> cargoprice = new ArrayList<>();
@@ -35,10 +36,12 @@ public class latestofferbuycardRecycleViewAdapter  extends RecyclerView.Adapter<
 
     private static final String TAG = "MainActivity";
 
-    public latestofferbuycardRecycleViewAdapter(ArrayList<String> brand, ArrayList<String> type,
+    public latestofferbuycardRecycleViewAdapter(ArrayList<String> ID, ArrayList<String> brand, ArrayList<String> type,
                                                   ArrayList<String> cargoprice,
                                                  ArrayList<String> mileage, ArrayList<String> model, ArrayList<String> city, ArrayList<String> dealer,
                                                  ArrayList<String> images , Context mContext) {
+
+        this.ID = ID;
         this.Brand = brand;
         this.Type = type;
         this.cargoprice = cargoprice;
@@ -54,7 +57,7 @@ public class latestofferbuycardRecycleViewAdapter  extends RecyclerView.Adapter<
 
     @Override
     public latestofferbuycardRecycleViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.specialofferbuycardfull, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.latestoffercardbuyfull, viewGroup, false);
         latestofferbuycardRecycleViewAdapter.ViewHolder holder = new latestofferbuycardRecycleViewAdapter.ViewHolder(view);
 
         return holder;
@@ -62,18 +65,37 @@ public class latestofferbuycardRecycleViewAdapter  extends RecyclerView.Adapter<
 
 
     @Override
-    public void onBindViewHolder(@NonNull latestofferbuycardRecycleViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull latestofferbuycardRecycleViewAdapter.ViewHolder holder, final int position) {
 
 
 
         holder.brand.setText(Brand.get(position) + " " + Type.get(position));
         holder.cargoprice.setText(cargoprice.get(position) + "₪");
-        holder.mileage.setText(mileage.get(position));
+        holder.mileage.setText(mileage.get(position) + "Km");
         holder.model.setText(model.get(position));
         holder.city.setText(city.get(position));
         holder.dealer.setText(dealer.get(position));
 
 
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(mContext , SpecialOfferBuyFullCard.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("Id" , ID.get(position));
+                intent.putExtra("Brand" , Brand.get(position));
+                intent.putExtra("Price" , cargoprice.get(position));
+                intent.putExtra("Kilometer" , mileage.get(position));
+                intent.putExtra("Model" , Type.get(position));
+                intent.putExtra("City" , city.get(position));
+                intent.putExtra("Dealer" , dealer.get(position));
+                intent.putExtra("MainImage" , images.get(position));
+
+                mContext.startActivity(intent);
+
+            }
+        });
 /*
         holder.price.setPaintFlags(holder.price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 */
@@ -101,6 +123,7 @@ public class latestofferbuycardRecycleViewAdapter  extends RecyclerView.Adapter<
         TextView mileage;
         TextView model;
         TextView dealer;
+        TextView button;
 
 
 
@@ -118,6 +141,8 @@ public class latestofferbuycardRecycleViewAdapter  extends RecyclerView.Adapter<
             cargoprice = itemView.findViewById(R.id.tv_cargoprice);
             olayout = itemView.findViewById(R.id.R1layout);
             cd = itemView.findViewById(R.id.cardView3);
+            button = itemView.findViewById(R.id.bt_txt_viewoffer);
+
         }
     }
 

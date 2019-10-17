@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".SignInAuthentication"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            android:id="@+id/textview9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lecenddeca_regular"
+            android:text="Sign In"
+            android:textAlignment="center"
+            android:textColor="#FFFF"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView6"
+            app:layout_constraintStart_toStartOf="@+id/imageView6"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_account"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lecenddeca_regular"
+            android:text="In Order to sign in  enter your phone number"
+            android:textColor="#FFFF"
+            android:textSize="14sp"
+            app:layout_constraintRight_toRightOf="@id/imageView6"
+            app:layout_constraintLeft_toLeftOf="@id/imageView6"
+            app:layout_constraintTop_toBottomOf="@id/textview9"
+            android:textAlignment="center"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:orientation="horizontal"
+        android:background="@drawable/roundedlayout"
+        android:layout_gravity="bottom"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true"
+            android:layout_gravity="center"
+
+            >
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Palestine +970"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:fontFamily="@font/lecenddeca_regular"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+
+                />
+
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/phonenumbertext"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:inputType="phone"
+                android:hint="Your Mobile Number"
+                android:textColor="#000"
+                android:fontFamily="@font/lecenddeca_regular"
+                android:layout_gravity="center"
+                android:background="@drawable/roundedbuttons3"
+                android:textAlignment="center"
+
+
+
+                />
+            <Button
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/signinbutton"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:background="@drawable/roundedbutton4"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="Sign In"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:fontFamily="@font/lecenddeca_regular"
+
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

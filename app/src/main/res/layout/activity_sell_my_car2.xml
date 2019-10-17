@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".SellMyCar2"
+    android:background="@color/colorPrimaryDark"
+
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sell My Car 2-5"
+            android:fontFamily="@font/lecenddeca_regular"
+            android:textSize="30dp"
+            android:textColor="#FFFF"
+            android:textAlignment="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="60dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_meter"
+                android:paddingLeft="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kilometers"
+                android:fontFamily="@font/lecenddeca_regular"
+                android:textColor="#FFFF"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+
+                >
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rg_new_used"
+                    android:layout_weight="1"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rb_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New 0 Km"
+                        android:textSize="18sp"
+                        android:buttonTint="#FFFF"
+                        android:textColor="#FFFF"
+                        android:checked="true"
+                        />
+
+
+                    <RadioButton
+                        android:id="@+id/rb_used"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Used"
+                        android:textSize="18sp"
+                        android:buttonTint="#FFFF"
+                        android:textColor="#FFFF"
+
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                    <EditText
+                        android:id="@+id/et_kilometers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#FFFF"
+                        android:hint="Ex. 36000"
+                        android:textSize="15sp"
+                        android:textAlignment="viewEnd"
+                        android:inputType="number"
+                        android:visibility="gone"
+
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textviewkm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Km"
+                        android:fontFamily="@font/lecenddeca_regular"
+                        android:textColor="#FFFF"
+                        android:textSize="16sp"
+                        android:gravity="center_vertical"
+                        android:layout_marginRight="44dp"
+                        android:visibility="gone"
+
+
+                        />
+
+                    </LinearLayout>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="60dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_gasoline_pump"
+                android:paddingLeft="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fuel Type"
+                android:fontFamily="@font/lecenddeca_regular"
+                android:textColor="#FFFF"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                />
+
+           <RadioGroup
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:id="@+id/rg_fueltype"
+
+               >
+               <RadioButton
+                   android:id="@+id/one1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Benzene"
+                   android:textSize="18sp"
+                   android:buttonTint="#FFFF"
+                   android:textColor="#FFFF"
+                   android:checked="true"
+
+
+
+                   />
+
+               <RadioButton
+                   android:id="@+id/one2"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Diesel"
+                   android:textSize="18sp"
+                   android:buttonTint="#FFFF"
+                   android:textColor="#FFFF"
+
+
+
+                   />
+
+               <RadioButton
+                   android:id="@+id/one3"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Hybird"
+                   android:textSize="18sp"
+                   android:buttonTint="#FFFF"
+                   android:textColor="#FFFF"
+
+
+
+                   />
+
+               <RadioButton
+                   android:id="@+id/one4"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Electric"
+                   android:textSize="18sp"
+                   android:buttonTint="#FFFF"
+                   android:textColor="#FFFF"
+
+
+
+                   />
+
+
+           </RadioGroup>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="40dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_manual_transmission"
+                android:paddingLeft="20dp"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Transmission"
+                android:fontFamily="@font/lecenddeca_regular"
+                android:textColor="#FFFF"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                />
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/rg_trasmission"
+                >
+                <RadioButton
+                    android:id="@+id/one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Automatic"
+                    android:textSize="18sp"
+                    android:buttonTint="#FFFF"
+                    android:textColor="#FFFF"
+                    android:checked="true"
+
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manual"
+                    android:textSize="18sp"
+                    android:buttonTint="#FFFF"
+                    android:textColor="#FFFF"
+
+
+
+                    />
+
+
+
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/next1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textColor="#FFFF"
+            android:textSize="20dp"
+            android:fontFamily="@font/lecenddeca_regular"
+            android:textAlignment="viewEnd"
+            android:paddingRight="30dp"
+            android:layout_marginBottom="40dp"
+
+            />
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

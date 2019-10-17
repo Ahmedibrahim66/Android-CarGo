@@ -1,6 +1,7 @@
 package com.example.cargo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,13 +80,26 @@ public class specialofferbuycardRecycleViewAdapter extends RecyclerView.Adapter<
         holder.city.setText(city.get(position));
         holder.dealer.setText(dealer.get(position));
 
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent(mContext , SpecialOfferBuyFullCard.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                mContext.startActivity(intent);
+
+            }
+        });
 /*
         holder.price.setPaintFlags(holder.price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 */
 
 
         // put the image //
+
+
+
         Picasso.get()
                 .load(images.get(position))
                 .into(holder.image);
@@ -110,6 +124,8 @@ public class specialofferbuycardRecycleViewAdapter extends RecyclerView.Adapter<
         TextView mileage;
         TextView model;
         TextView dealer;
+        TextView button;
+
 
 
 
@@ -129,6 +145,7 @@ public class specialofferbuycardRecycleViewAdapter extends RecyclerView.Adapter<
             cargoprice = itemView.findViewById(R.id.tv_cargoprice);
             olayout = itemView.findViewById(R.id.R1layout);
             cd = itemView.findViewById(R.id.cardView3);
+            button = itemView.findViewById(R.id.viewofferbuyspeical);
         }
     }
 

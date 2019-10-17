@@ -1,9 +1,12 @@
 package com.example.cargo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,8 +18,16 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.luseen.spacenavigation.SpaceOnClickListener;
@@ -29,8 +40,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawer;
     SpaceNavigationView spaceNavigationView;
+    BoomMenuButton bmb;
 
 
+    private static final String TAG = MainActivity.class.getSimpleName();
 
 
     @Override
@@ -47,27 +60,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
+
         //navigation drwaer
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        if(FirebaseAuth.getInstance().getCurrentUser() != null )
+        {
+            // user is logged in
+            navigationView.getMenu().clear();
+            navigationView.inflateMenu(R.menu.drawer_menu);
+        }else {
+            // no user logged in
+            navigationView.getMenu().clear();
+            navigationView.inflateMenu(R.menu.drawer_menu_no_user);
+        }
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new BuyFragment()).commit();
-            navigationView.setCheckedItem(R.id.account);
+
+
+
         }
+
+
+
+
+
         //navigation drwaer
 
 
         //Boom menu button
-        final BoomMenuButton bmb = (BoomMenuButton) findViewById(R.id.bmb);
+        bmb = (BoomMenuButton) findViewById(R.id.bmb);
 
         //First builder
         HamButton.Builder builder = new HamButton.Builder()
@@ -160,31 +193,148 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if(itemIndex == 0)
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container ,
-                            new BuyFragment()).commit();}
+                            new BuyFragment()).commit();
+                    navigationView.setCheckedItem(R.id.menu_buyacar);
+
+                }
 
                 if(itemIndex == 1)
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container ,
-                            new RentFragment()).commit();}
+                            new RentFragment()).commit();
+                    navigationView.setCheckedItem(R.id.menu_rentacar);
 
-                Toast.makeText(MainActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
             public void onItemReselected(int itemIndex, String itemName) {
-                Toast.makeText(MainActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
             }
         });
         //bottom space nav bar
 
 
 
+        View headerView = navigationView.getHeaderView(0);
+        final TextView navUsername = (TextView) headerView.findViewById(R.id.tv_usernamename);
 
-        // recycle view
+
+        //work for log in database
+
+        if(FirebaseAuth.getInstance().getCurrentUser() != null ) {
+            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+            final FirebaseFirestore db = FirebaseFirestore.getInstance();
+            final String id = firebaseAuth.getUid();
+            final int[] flag = {0};
+            final int[] flag1 = {0};
 
 
 
-        //recycle view
+            //craete account for users
+            db.collection("Users")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                    if(id.equals(document.getId())){
+                                        flag[0] =1;
+                                        // if user in firestore data base then change flag
+                                        db.collection("Users").document(document.getId()).get()
+                                                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                    @Override
+                                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                                                        navUsername.setText(documentSnapshot.getString("Name"));
+
+                                                    }
+                                                });
+
+
+                                        if(document.getString("isDealer").equals("1")){
+                                            //user is dealer check if he have account if not create account
+
+                                            ///create account for dealers
+                                            db.collection("Dealers")
+                                                    .get()
+                                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                            if (task.isSuccessful()) {
+                                                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                                                    if(id.equals(document.getId())){
+                                                                        flag1[0] =1;
+                                                                        // if user in firestore data base then change flag
+                                                                        db.collection("Dealers").document(document.getId()).get()
+                                                                                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                                                    @Override
+                                                                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                                                                                        navUsername.setText(documentSnapshot.getString("Name"));
+
+                                                                                    }
+                                                                                });
+
+
+
+                                                                    }
+
+                                                                }
+
+                                                                if(flag1[0] == 0 ) {
+                                                                    //if user not in firebase data base then create account
+                                                                    Intent intent = new Intent(getApplicationContext(), CreateDealer.class);
+                                                                    startActivity(intent);
+                                                                }
+
+                                                            } else {
+                                                                Log.w(TAG, "Error getting documents.", task.getException());
+                                                            }
+                                                        }
+                                                    });
+
+
+
+                                        }
+
+
+
+                                    }
+
+                                }
+
+                                if(flag[0] == 0 ) {
+                                    //if user not in firebase data base then create account
+                                    Intent intent = new Intent(getApplicationContext(), CreateAccount.class);
+                                    startActivity(intent);
+                                }
+
+                            } else {
+                                Log.w(TAG, "Error getting documents.", task.getException());
+                            }
+                        }
+                    });
+
+
+
+
+
+
+        }
+
+        //create account for Dealers
+
+
+
+
+        //work for log in database
+
 
 
     }
@@ -194,18 +344,76 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId()){
 
-            case R.id.account:
+            case R.id.menu_buyacar:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new BuyFragment()).commit();
+
+                spaceNavigationView.setVisibility(View.VISIBLE);
+
+                break;
+
+            case R.id.menu_rentacar:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new RentFragment()).commit();
+                spaceNavigationView.setVisibility(View.VISIBLE);
+
+                break;
+
+            case R.id.SellmyCar:
+                Intent intent = new Intent(this , SellMyCar.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                this.startActivity(intent);
+
+
+                break;
+
+            case R.id.menu_favorite:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new FavoriteList()).commit();
+                spaceNavigationView.setVisibility(View.GONE);
+
+                break;
+
+            case R.id.menu_listedcars:
+
+                Intent intenttest = new Intent(this,AddDealer.class);
+                startActivity(intenttest);
+                break;
+
+
+            case R.id.editaccount:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new DealerProfile()).commit();
+
+                spaceNavigationView.setVisibility(View.GONE);
+
+
+                break;
+
+
+
+            case R.id.LogOut:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent3 = new Intent(this, MainActivity.class);
+                startActivity(intent3);
                 break;
 
             case R.id.aboutUs:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new BuyFragment()).commit();
+                Toast.makeText(this, "AboutUs", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.contactus:
-                Toast.makeText(this, "contactUs", Toast.LENGTH_SHORT).show();
+
+            case R.id.SellmyCarNotLogged:
+                Toast.makeText(this, "ContactUs", Toast.LENGTH_SHORT).show();
                 break;
+
+
+
+            case R.id.logIn:
+                Intent intent1 = new Intent(this , SignInAuthentication.class);
+                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                this.startActivity(intent1);
+                break;
+
         }
 
         drawer.closeDrawer(GravityCompat.START);

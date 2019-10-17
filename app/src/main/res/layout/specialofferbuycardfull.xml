@@ -5,8 +5,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/R1layout"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
+    android:paddingBottom="20dp"
     >
 
 
@@ -63,10 +62,11 @@
 
                     <ImageView
                         android:id="@+id/iv_carimage"
-                        android:layout_width="180dp"
+                        android:layout_width="match_parent"
                         android:layout_height="170dp"
                         android:src="@drawable/topdealbackground"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="centerCrop"
+                        android:layout_weight="4"/>
 
 
 
@@ -74,6 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="170dp"
                         android:orientation="vertical"
+                        android:layout_weight="5"
                         >
 
 
@@ -322,6 +323,7 @@
 
 
                 <TextView
+                    android:id="@+id/viewofferbuyspeical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="View Offer"

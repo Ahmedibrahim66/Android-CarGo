@@ -82,7 +82,8 @@
             app:space_background_color="@color/colorPrimaryDark"
             app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
             app:space_item_icon_size="@dimen/space_item_icon_default_size"
-            app:space_item_text_size="@dimen/space_item_text_default_size" />
+            app:space_item_text_size="@dimen/space_item_text_default_size"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

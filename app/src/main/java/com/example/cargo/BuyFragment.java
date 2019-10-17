@@ -25,8 +25,8 @@ public class BuyFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
 
 
-    private ArrayList<String> mNames = new ArrayList<>();;
-    private ArrayList<String> mImageUrls = new ArrayList<>();;
+    private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mImageUrls = new ArrayList<>();
 
 
 
@@ -52,7 +52,7 @@ public class BuyFragment extends Fragment {
 
     ViewFlipper v_flipper;
 
-    TextView tv;
+    TextView tv ,tv1;
 
 
 
@@ -63,6 +63,9 @@ public class BuyFragment extends Fragment {
 
 
         tv = v.findViewById(R.id.tv_seeallspecialbuy);
+        tv1 = v.findViewById(R.id.seeAllLatestoffer);
+
+
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +76,19 @@ public class BuyFragment extends Fragment {
 
             }
         });
+
+
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getContext(), LatestOffersBuy.class));
+
+
+            }
+        });
+
+
         //image flipper
         int images [] = {R.drawable.specialoffer , R.drawable.specialoffer2 , R.drawable.mercesdescomm , R.drawable.audiq8comm};
         v_flipper = v.findViewById(R.id.v_flipper);
@@ -183,7 +199,7 @@ public class BuyFragment extends Fragment {
         images11.add("https://scontent.fjrs1-1.fna.fbcdn.net/v/t1.0-9/70622789_2479795902278782_2912376834760900608_o.jpg?_nc_cat=105&_nc_oc=AQmRqCrKAM-iGmrv3yRp5IEarqqEivmKnJt9g5fCVdMzNpt3f-B5BbAOCpW3CgIzr5I&_nc_ht=scontent.fjrs1-1.fna&oh=428a208cc0d584ef95549d6f67296e95&oe=5E3DAA4E");
 
 
-        Brand.add("Range Rover ");
+        Brand.add("Range Rover");
         Type.add("Evoqe");
         Price.add("189,000");
         locations.add("Ramallah");

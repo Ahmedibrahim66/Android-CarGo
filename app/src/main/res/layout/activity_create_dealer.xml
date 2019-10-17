@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateDealer"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+
+
+
+    <EditText
+        android:id="@+id/createDealer_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dealer Name"/>
+
+
+    <EditText
+        android:id="@+id/createDealer_City"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="City"/>
+
+    <EditText
+        android:id="@+id/createDealer_street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Street Name"/>
+
+    <EditText
+        android:id="@+id/createDealer_Phone1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"/>
+
+    <EditText
+        android:id="@+id/createDealer_Phone2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number2"/>
+
+    <EditText
+        android:id="@+id/createDealer_Phone3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number3"/>
+
+
+    <EditText
+        android:id="@+id/createDealer_fburl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Facebook Page URL"/>
+
+    <EditText
+        android:id="@+id/createDealer_instaurl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Instagram Page URL"/>
+
+    <EditText
+        android:id="@+id/createDealer_whatsapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="whats App number"/>
+
+
+    <Button
+        android:id="@+id/createDealer_profilepicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile Picture"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/createDealer_Picture"/>
+
+
+    <Button
+        android:id="@+id/createDealer_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Location"
+        />
+
+
+
+    <Button
+        android:id="@+id/createDealer_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="finish"/>
+
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/button_upload"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+
+
+
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>
+

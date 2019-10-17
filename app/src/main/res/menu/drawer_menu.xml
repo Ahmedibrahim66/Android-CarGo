@@ -1,22 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
-    <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/account"
-            android:icon="@drawable/ic_info_black_24dp"
-            android:title="My Account" />
 
-        <item
-            android:id="@+id/settings"
-            android:icon="@drawable/ic_contactus"
-            android:title="Settings" />
-        <item
-            android:id="@+id/mycart"
-            android:icon="@drawable/ic_settings_black_24dp"
-            android:title="My Cart" />
+    <group
+        android:checkableBehavior="single"
+        >
+
+
+        <item android:title="CarGO Home">
+            <menu  >
+                <item
+                    android:id="@+id/menu_buyacar"
+                    android:icon="@drawable/ic_car_for_sale"
+                    android:title="Buy a Car"
+                    ></item>
+
+                <item
+                    android:id="@+id/menu_rentacar"
+                    android:icon="@drawable/ic_rentcar"
+                    android:title="Rent  a Car"></item>
+
+                <item
+                    android:id="@+id/SellmyCar"
+                    android:icon="@drawable/ic_payment_methodblack"
+                    android:title="Sell My Car"></item>
+
+
+            </menu>
+        </item>
+
+
+
+        <item android:title="Account">
+            <menu>
+                <item
+                    android:id="@+id/menu_favorite"
+                    android:icon="@drawable/ic_favorite_border_black_24dp"
+                    android:title="Favorite"></item>
+
+                <item
+                    android:id="@+id/menu_listedcars"
+                    android:icon="@drawable/ic_carblack"
+                    android:title="My Listed Cars"></item>
+
+
+                <item
+                    android:id="@+id/editaccount"
+                    android:icon="@drawable/ic_resume"
+                    android:title="Edit Account"></item>
+
+                <item
+                    android:id="@+id/LogOut"
+                    android:icon="@drawable/ic_exit"
+                    android:title="Log out"></item>
+
+
+            </menu>
+        </item>
+
+
     </group>
 
     <item android:title="Communicate">
@@ -24,16 +69,11 @@
             <item
                 android:id="@+id/aboutUs"
                 android:icon="@drawable/ic_info_black_24dp"
-                android:title="About us"></item>
-
-            <item
-                android:id="@+id/contactus"
-                android:icon="@drawable/ic_info_black_24dp"
-                android:title="Contact us"></item>
-
+                android:title="About Us"></item>
 
         </menu>
     </item>
+
 
 
 </menu>

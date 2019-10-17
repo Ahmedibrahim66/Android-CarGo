@@ -4,12 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    >
+
     <ImageView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/ic_launcher_background"/>
+        android:layout_marginTop="25dp"
+        android:background="@drawable/ic_round_account_button_with_user_inside"
+        android:layout_gravity="left"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_usernamename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guest User"
+        android:textColor="#FFFF"
+        android:textSize="15sp"
+        android:fontFamily="@font/lecenddeca_regular"
+        android:layout_gravity="left"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+
+
+        />
 
 </LinearLayout>

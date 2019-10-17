@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,8 +48,6 @@ public class SpecialOffersBuy extends AppCompatActivity   {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_special_offers_buy);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
 
         iv = findViewById(R.id.iv_speciialofferBack);
@@ -187,7 +184,7 @@ public class SpecialOffersBuy extends AppCompatActivity   {
 
     private void recycleviewcreate4(){
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view3);
-        LatestOffersBuyRecycleViewAdapter adapter = new LatestOffersBuyRecycleViewAdapter( Brand1 ,locations,Price1,Dealer,images11 ,Type1, getApplicationContext());
+        LatestOffersBuyRecycleViewAdapter adapter = new LatestOffersBuyRecycleViewAdapter( Brand1 ,locations,Price1,Dealer,images11 ,Type1, this);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(getApplicationContext(),  LinearLayoutManager.HORIZONTAL, false);
